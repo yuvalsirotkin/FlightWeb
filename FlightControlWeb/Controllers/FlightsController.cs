@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -47,7 +47,7 @@ namespace FlightControlWeb.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFlight(int id, Flight flight)
         {
-            if (id != flight.Id)
+            if (id != flight.flight_id)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace FlightControlWeb.Controllers
             _context.Flights.Add(flight);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFlight", new { id = flight.Id }, flight);
+            return CreatedAtAction("GetFlight", new { id = flight.flight_id }, flight);
         }
 
         // DELETE: api/Flights/5
@@ -103,7 +103,7 @@ namespace FlightControlWeb.Controllers
 
         private bool FlightExists(int id)
         {
-            return _context.Flights.Any(e => e.Id == id);
+            return _context.Flights.Any(e => e.flight_id == id);
         }
     }
 }
