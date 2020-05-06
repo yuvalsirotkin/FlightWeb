@@ -12,10 +12,10 @@ namespace FlightControlWeb
         //bool TryGetValue(object key, out object value);
         //ICacheEntry CreateEntry(object key);
         void Remove(object key);
-        void AddFlight(Flight flight);
+        void AddFlight(FlightPlan flightplan);
         void UpdateFlight(object key);
-        List<Flight> GetAllFlight();
-        Flight GetFlightById(object key);
+        IEnumerable<Flight> GetAllFlight();
+        FlightPlan GetFlightById(object key);
     }
 
 }
